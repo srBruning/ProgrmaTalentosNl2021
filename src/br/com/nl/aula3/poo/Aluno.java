@@ -64,6 +64,10 @@ public class Aluno {
 		this.matricula = matricula;
 	}
 
+	/**
+	 * Calcula e retorna a media das notas do aluno
+	 * @return
+	 */
 	public float media() {
 		float media = (notaProva1 + notaProva2 + notaTrabalho) / 3;
 		return media;
@@ -74,7 +78,7 @@ public class Aluno {
 		aluno1.setNotaProva1(10);
 		aluno1.setNotaProva2(5);
 		aluno1.setNotaTrabalho(2);
-
-		System.out.println(aluno1.getNome()+": "+ aluno1.media());
+		float media = aluno1.media();
+		System.out.println(aluno1.getNome() + ": " + media);
 	}
 }

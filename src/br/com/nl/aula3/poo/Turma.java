@@ -1,8 +1,10 @@
 package br.com.nl.aula3.poo;
 
 public class Turma {
+	
 	private String nome;
 	private Aluno alunos[];
+	
 	private int qtdAluno = 0;
 	
 	public Turma(String nome) {
@@ -26,6 +28,21 @@ public class Turma {
 	public void setAlunos(Aluno[] alunos) {
 		this.alunos = alunos;
 	}
+	
+	/**
+	 * Calcula a media da turama com base nas medias dos alunos.
+	 * @return
+	 */
+	public float mediaTuram() {
+		float media = 0;
+		for (int i = 0; i < qtdAluno; i++) {
+			media += alunos[i].media();
+		}
+		media = media/qtdAluno;
+		
+		return media;
+	}
+	
 	
 	public static void main(String[] args) {
 		Turma t1 = new Turma("t1");
@@ -52,6 +69,9 @@ public class Turma {
 				break;
 			System.out.println(alunos[i].getNome()+": "+alunos[i].media());
 		}
+		
+		float mediaTuram = t1.mediaTuram();
+		System.out.println(mediaTuram);
 	}
 	
 }
