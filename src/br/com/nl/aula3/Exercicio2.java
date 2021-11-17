@@ -4,51 +4,58 @@ import java.util.Scanner;
 
 public class Exercicio2 {
 
-	private static Scanner scanner;
+	private static Scanner sc;
 
 	public static void main(String[] args) {
 
-		scanner = new Scanner(System.in);
+		sc = new Scanner(System.in);
 
 		try {
 			processar();
 		} finally {
-			scanner.close();
+			sc.close();
 		}
 	}
 
+	/*
+	 * 2) Leia um conjunto de notas, cuja quantidade seja determinada pelo usuário.
+	 * Calcule a média de todas elas. Exiba o conjunto das notas maiores do que a
+	 * média calculada. Em seguida, de forma agrupada, exiba o outro conjunto de
+	 * notas (menores do que a média).
+	 * 
+	 */
 	public static void processar() {
 
 		System.out.println("Informe a quantidade de notas:");
 
-		double media = 0;
-		int quantidade = scanner.nextInt();
+		int quantidade = sc.nextInt();
 
-		double vetor[];
-		vetor = new double[quantidade];
+		double notas[] = new double[quantidade];
 
-		for (int i = 0; i < quantidade; i++) {
-			System.out.println("Informe a " + (i + 1) + "ª nota");
-			vetor[i] = scanner.nextInt();
-			
-			media = media + vetor[i];
+		double mediaTurma = 0;
+
+		for (int i = 0; i < notas.length; i++) {
+			System.out.print("Digite a nota do " + i + " aluno:");
+			notas[i] = sc.nextDouble();
+
+			mediaTurma += notas[i];
 		}
-		
-		media = media / quantidade;
-		
-		System.out.println("A média é              : " + media);
 
-		String maior = "Nota(s) acima média    : ";
-		String menor = "Nota(s) abaixo da média: ";
-		for (int i = 0; i < quantidade; i++) {
-			if (vetor[i] > media) {
-				maior = maior + vetor[i] + "    ";
+		mediaTurma /= notas.length;
+
+		System.out.println("Media de nota da turma = " + mediaTurma);
+		String txtMaior = "Acima da media: ";
+		String txtMenor = "Abaixo da media: ";
+		for (int i = 0; i < notas.length; i++) {
+			if (notas[i] > mediaTurma) {
+				txtMaior += notas[i] + ", ";
 			} else {
-				menor = menor + vetor[i] + "    ";
+				txtMenor += notas[i] + ", ";
 			}
 		}
-		
-		System.out.println(maior);
-		System.out.println(menor);
+
+		System.out.println(txtMaior);
+		System.out.println(txtMenor);
+
 	}
 }

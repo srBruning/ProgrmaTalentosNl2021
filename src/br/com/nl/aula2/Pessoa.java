@@ -8,7 +8,7 @@ package br.com.nl.aula2;
 public class Pessoa {
 	// representa a idade da pessoa
 	private int idade;
-	public  String nome;
+	private  String nome;
 	
 
 	public static int qtdPessoas;
