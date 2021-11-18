@@ -9,7 +9,7 @@ package br.com.nl.aula4;
  * @author diego
  *
  */
-public abstract class FiguraGeometrica {
+public abstract class FiguraGeometrica implements Imprimivel {
 
 	public void imprimir() {
 		System.out.println("Área: "+calcularArea());
